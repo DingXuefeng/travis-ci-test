@@ -9,7 +9,7 @@ jobs:
       compiler: clang
 install:
   - mkdir gtest-build; cd gtest-build; cmake ../gtest -DCMAKE_INSTALL_PREFIX=../gtest-install
-  - cmake --build . -j -t install
+  - cmake --build . --target install
 env: GTEST_ROOT=$PWD/../gtest-install
 script:
   - mkdir build; cd build; cmake ..
