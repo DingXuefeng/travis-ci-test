@@ -4,12 +4,18 @@
 
 sudo: false
 language: cpp
-compiler:
-  - gcc
-  - clang
-install:
-  - [ $CXX = g++ ] && export CXX=g++-6 || true
-  - [ $CXX = clang++ ] && export CXX=clang++-3.8 || true
+jobs:
+  include:
+    - os: linux
+      dist: trusty
+      compiler: gcc
+      pre-install: echo "hi, linux"
+    - os: osx
+      osx_image: xcode11.3.1
+      compiler: clang
+      pre-install: echo "hi, macOS"
+install: skip
 script:
+  - echo $CXX
   - make
   - make test
