@@ -13,7 +13,7 @@ target_compile_features(main PUBLIC cxx_std_11)
 
 SET(COVERAGE OFF CACHE BOOL "Coverage")
 add_executable(tests test.cc)
-target_link_libraries(tests lib GTest::GTest GTest::Main)
+target_link_libraries(tests PRIVATE lib PUBLIC GTest::GTest GTest::Main)
 target_compile_features(tests PUBLIC cxx_std_11)
 if (COVERAGE)
     target_compile_options(tests PRIVATE --coverage)
