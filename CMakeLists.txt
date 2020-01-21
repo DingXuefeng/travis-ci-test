@@ -4,7 +4,6 @@ project(directory_test)
 find_package(GTest REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR})
-message(status "${CMAKE_SOURCE_DIR}")
 add_library(lib lib.cc)
 
 add_executable(main main.cc)
