@@ -1,5 +1,5 @@
-#include <iostream>
+#include "lib.h"
 int main() {
-  std::cout<<"hello"<<std::endl;
+  add(1,2);
   return 0;
 }
