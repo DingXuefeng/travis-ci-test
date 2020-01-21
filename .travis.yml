@@ -12,5 +12,9 @@ install:
   - cmake --build . --target install; cd ..
   - export GTEST_ROOT=$PWD/gtest-install
 script:
-  - mkdir build; cd build; cmake ..
+  - mkdir build; cd build; cmake .. -DCOVERAGE=1
   - cmake --build .
+  - ./tests
+
+after_success:
+  - coveralls --root .. -E ".*build" -E ".*install" -E "gtest"
