@@ -4,6 +4,11 @@
 
 sudo: false
 language: cpp
+install: skip
+script:
+  - echo $CXX
+  - make
+  - make test
 jobs:
   include:
     - os: linux
@@ -14,8 +19,3 @@ jobs:
       osx_image: xcode11.3.1
       compiler: clang
       before_install: echo "hi, macOS"
-      install: skip
-      script:
-        - echo $CXX
-        - make
-        - make test
