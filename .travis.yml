@@ -4,18 +4,16 @@
 
 sudo: false
 language: cpp
-install: skip
 script:
   - echo $CXX
-  - make
   - make test
 jobs:
   include:
     - os: linux
       dist: trusty
       compiler: gcc
-      before_install: echo "hi, linux"
+      before_install: make
     - os: osx
       osx_image: xcode11.3.1
       compiler: clang
-      before_install: echo "hi, macOS"
+      before_install: make
